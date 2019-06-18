@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new patient</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form th:action="@{/patients/add}" method="post" th:object="${patient}">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" class="form-control" th:field="*{name}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Surname</label>
+                    <input id="surname" type="text" class="form-control" th:field="*{surname}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" class="form-control" th:field="*{age}"/>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label for="gender">Gender</label>-->
+                    <!--<ul class="list-inline" id="gender">-->
+                        <!--<li th:each="g : ${genders}" class="list-inline-item">-->
+                            <!--<input type="radio" th:field="*{gender}" th:value="${g}" class="mr-1"/>-->
+                            <!--<label th:text="${g}" class="mr-2"></label>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <ul class="list-inline" id="gender">
+                        <li th:each="g : ${genders}" class="list-inline-item">
+                            <input type="radio" th:field="*{gender}" th:value="${g}" class="mr-1"/>
+                            <label th:text="${g}" class="mr-2"></label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

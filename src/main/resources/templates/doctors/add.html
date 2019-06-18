@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new worker</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form th:action="@{/doctors/add}" method="post" th:object="${doctor}" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" class="form-control" th:field="*{name}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" th:field="*{email}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" class="form-control" th:field="*{age}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="eDate">Employment date</label>
+                    <input id="eDate" type="date" class="form-control" th:field="*{employmentDate}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <ul class="list-inline" id="gender">
+                        <li th:each="g : ${genders}" class="list-inline-item">
+                            <input type="radio" th:field="*{gender}" th:value="${g}" class="mr-1"/>
+                            <label th:text="${g}" class="mr-2"></label>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="specialisation">Specialisation</label>
+                    <ul class="list-inline" id="specialisation">
+                        <li th:each="s : ${specialisation}" class="list-inline-item">
+                            <input type="checkbox" th:field="*{specialisations}" th:value="${s}" class="mr-1"/>
+                            <label th:text="${s}" class="mr-2"></label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Experience</label>
+                    <select th:field="*{experience}" id="experience">
+                        <option th:each="e : ${experiences}" th:value="${e}" th:text="${e}"></option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input id="photo" type="file" class="form-control" th:field="*{file}"/>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
