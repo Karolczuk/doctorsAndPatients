@@ -1,8 +1,6 @@
 package com.app.doctors_and_patients.controllers;
 
-import com.app.doctors_and_patients.dto.PatientDto;
 import com.app.doctors_and_patients.dto.VisitDto;
-import com.app.doctors_and_patients.model.Gender;
 import com.app.doctors_and_patients.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

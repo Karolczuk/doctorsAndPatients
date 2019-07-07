@@ -1,20 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/fontawesome-free-5.9.0-web/js/all.js">
+    <link href="/css/fontawesome-free-5.9.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="/css/fontawesome-free-5.9.0-web/css/brands.css" rel="stylesheet">
+    <link href="/css/fontawesome-free-5.9.0-web/css/solid.css" rel="stylesheet">
+    <div th:replace="fragments/navigation :: navigation"></div>
+    <link rel="stylesheet" href="/css/style.css">
     <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-8 offset-2">
-            <h1>INDEX</h1>
+<section>
+    <div class="jumbotron top mb-0 jumbotron-fluid" style="height: 885px; padding-top: 350px; ">
+        <div id="cha">
+            <h1 id="changeText">Znajdz lekarza i umów wizytę</h1>
+        </div>
+        <div class="container">
+            <div>
+                <form th:action="@{/doctors/search}" method="post" th:object="${doctor}">
+
+                    <div class="form-group float-left myChange">
+                        <select class="form-control" th:field="*{specialisation}">
+                            <option th:each="s: ${specialisations}" th:value="${s}" th:text="${s}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group float-left">
+                        <select class="form-control" th:field="*{city}">
+                            <option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group myStyle float-left">
+                        <button type="submit" class="btn btn-primary btn-block">Szukaj</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<section style="margin-top: 50px">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <h5><i style="margin-right: 5px" class="fas fa-search"></i> Znajdz specjaliste</h5>
+            </div>
+            <div class="col-md-3">
+                <h5><i style="margin-right: 5px" class="fas fa-calendar"></i> Łatwo umów wizytę</h5>
+            </div>
+            <div class="col-md-3">
+                <h5><i style="margin-right: 5px" class="fas fa-clock"></i> Przyjdź na wizytę
+                </h5>
+            </div>
+            <div class="col-md-3">
+                <h5><i style="margin-right: 5px" class="fas fa-thumbs-up"></i> Usługa jest bezpłatna</h5>
+            </div>
+        </div>
+        <div class="row " style="margin-top: 50px">
+            <div class="col-md-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+            </div>
+            <div class="col-md-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+            </div>
+            <div class="col-md-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+            </div>
+            <div class="col-md-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt.
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="margin-top: 80px">Porady</h4>
+                <div style="margin-top: 25px">
+                    <p>
+                        <a href="questions">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat
+                        </a></p>
+                </div>
+                <div class="row">
+                    <p class="placeholder">Odpowiedz lekarza</p>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img class="photo" src="../static/img/5ea4dddc-c70c-434e-8e92-f89d9c9d50d7.jpg" width="1000"
+                             th:src="@{img/5ea4dddc-c70c-434e-8e92-f89d9c9d50d7.jpg}"/>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="answer">
+                            <h4>Anna Nowacka</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4 style="margin-top: 80px">Porady</h4>
+                <div style="margin-top: 25px">
+                    <p>
+                        <a href="questions">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat
+                        </a></p>
+                </div>
+
+
+                <div class="row">
+                    <p class="placeholder">Odpowiedz lekarza</p>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg" width="1000"
+                             th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"/>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="answer">
+                            <h4>Anna Nowacka</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--</div>-->
+            <div class="col-md-6">
+                <h4 style="margin-top: 80px">Najnowsze opinie</h4>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg" width="1000"
+                             th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"/>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="answer-new">
+                            <h4>Anna Nowacka</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    </div>
+</section>
+
+<footer>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</footer>
 </body>
 </html>

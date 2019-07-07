@@ -20,6 +20,11 @@
                 </div>
 
                 <div class="form-group">
+                        <label for="name">Surname</label>
+                    <input id="surname" type="text" class="form-control" th:field="*{surname}"/>
+                </div>
+
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" th:field="*{email}"/>
                 </div>
@@ -44,7 +49,6 @@
                     </ul>
                 </div>
 
-
                 <div class="form-group">
                     <label for="specialisation">Specialisation</label>
                     <ul class="list-inline" id="specialisation">
@@ -54,6 +58,26 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="form-group">
+                    <label for="skill">City</label>
+                    <ul class="list-inline" id="skill">
+                        <li th:each="s : ${cities}" class="list-inline-item">
+                            <input type="checkbox" th:field="*{cities}" th:value="${s}" class="mr-1"/>
+                            <label th:text="${s}" class="mr-2"></label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label for="city">City</label>-->
+                    <!--<ul class="list-inline" id="city">-->
+                        <!--<li th:each="s : ${city}" class="list-inline-item">-->
+                            <!--<input type="checkbox" th:field="*{cities}" th:value="${c}" class="mr-1"/>-->
+                            <!--<label th:text="${c}" class="mr-2"></label>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
                 <div class="form-group">
                     <label for="experience">Experience</label>

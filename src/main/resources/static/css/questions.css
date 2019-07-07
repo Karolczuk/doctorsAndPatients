@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    background-color: lightgrey;
+}
+
+section{
+    max-width: 1250px;
+    margin: 50px auto;
+    /*background-color: red;*/
+
+}
+
+
+
+.doctor-question-body {
+    background: white;
+    border: 1px solid #edeff2;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+.answer {
+    background: lightgray;
+    border: 1px solid #edeff2;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    top: 40px;
+    margin-top: 40px;
+}
+

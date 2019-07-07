@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ala </title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/navigation.css">
+    <div th:replace="fragments/navigation :: navigation"></div>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>Imię</td>
+        <td>Nazwisko</td>
+        <td>Email</td>
+        <td>Akcja</td>
+    </tr>
+    <tr th:each="doctor: ${doctors}">
+        <td th:text="${doctor.name}"/>
+    </tr>
+</table>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

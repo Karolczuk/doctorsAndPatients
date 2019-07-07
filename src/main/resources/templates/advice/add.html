@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Advices</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/navigation.css">
+    <div th:replace="fragments/navigation :: navigation"></div>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form th:action="@{/advice/add}" method="post" th:object="${advice}">
+                <input hidden th:field="*{doctorId}"/>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input id="description" type="text" class="form-control" th:field="*{description}"/>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--//* do atrybutu obiektu-->
+<!--// {} -nazwa-->
+<!--// @ - odwloanie do linku-->
+<!--//$ do zmiennnej z modelu-->

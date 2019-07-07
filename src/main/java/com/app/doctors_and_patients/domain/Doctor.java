@@ -1,4 +1,4 @@
-package com.app.doctors_and_patients.model;
+package com.app.doctors_and_patients.domain;
 
 import lombok.*;
 
@@ -18,6 +18,7 @@ public class Doctor {
     private Long id;
 
     private String name;
+    private String surname;
     private String email;
     private Integer age;
     private LocalDate employmentDate;
@@ -39,5 +40,20 @@ public class Doctor {
     )
     @Column(name = "specialisation")
     private Set<Specialisation> specialisations;
+
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "cities",
+            joinColumns = @JoinColumn(name = "doctor_id")
+    )
+    @Column(name = "city")
+    private Set<City> cities;
+
+    @OneToMany(mappedBy = "doctor", orphanRemoval = true)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Advice> advices;
+
 
 }

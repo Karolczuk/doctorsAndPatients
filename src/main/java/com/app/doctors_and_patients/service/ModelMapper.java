@@ -1,11 +1,15 @@
 package com.app.doctors_and_patients.service;
 
+import com.app.doctors_and_patients.domain.Advice;
+import com.app.doctors_and_patients.dto.AdviceDto;
 import com.app.doctors_and_patients.dto.DoctorDto;
 import com.app.doctors_and_patients.dto.PatientDto;
 import com.app.doctors_and_patients.dto.VisitDto;
-import com.app.doctors_and_patients.model.Doctor;
-import com.app.doctors_and_patients.model.Patient;
-import com.app.doctors_and_patients.model.Visit;
+import com.app.doctors_and_patients.domain.Doctor;
+import com.app.doctors_and_patients.domain.Patient;
+import com.app.doctors_and_patients.domain.Visit;
+
+import java.util.HashSet;
 
 
 public interface ModelMapper {
@@ -50,6 +54,8 @@ public interface ModelMapper {
         return doctorDto == null ? null : Doctor.builder()
                 .id(doctorDto.getId())
                 .name(doctorDto.getName())
+                .surname(doctorDto.getSurname())
+                .cities(doctorDto.getCities())
                 .age(doctorDto.getAge())
                 .email(doctorDto.getEmail())
                 .employmentDate(doctorDto.getEmploymentDate())
@@ -57,6 +63,26 @@ public interface ModelMapper {
                 .gender(doctorDto.getGender())
                 .specialisations(doctorDto.getSpecialisations())
                 .photoFilename(doctorDto.getPhotoFilename())
+                .advices(new HashSet<>())
+                .build();
+    }
+
+    static Advice fromAdviceDtoToAdvice(AdviceDto adviceDto) {
+        return adviceDto == null ? null : Advice.builder()
+                .createDate(adviceDto.getCreateDate())
+                .description(adviceDto.getDescription())
+                .lastModifiedDate(adviceDto.getLastModifiedDate())
+                .doctor(adviceDto.getDoctorDto() == null ? null : fromDoctorDtoToDoctor(adviceDto.getDoctorDto()))
+                .build();
+    }
+
+    static AdviceDto fromAdviceToAdviceDto(Advice advice) {
+        return advice == null ? null : AdviceDto.builder()
+                .createDate(advice.getCreateDate())
+                .lastModifiedDate(advice.getLastModifiedDate())
+                .description(advice.getDescription())
+                .doctorId(advice.getDoctor().getId())
+                .doctorDto(advice.getDoctor() == null ? null : fromDoctorToDoctorDto(advice.getDoctor()))
                 .build();
     }
 

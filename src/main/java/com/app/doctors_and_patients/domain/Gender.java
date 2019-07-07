@@ -1,8 +1,8 @@
-package com.app.doctors_and_patients.model;
+package com.app.doctors_and_patients.domain;
 
 public enum Gender {
 
-    MALE("MĘŻCZYZNA"), FEMALE("KOBIETA");
+    MALE("MEN"), FEMALE("WOMEN");
 
     private String name;
 
