@@ -1,15 +1,17 @@
 package com.app.doctors_and_patients.controllers;
 
-import com.app.doctors_and_patients.dto.DoctorDto;
 import com.app.doctors_and_patients.domain.City;
 import com.app.doctors_and_patients.domain.Specialisation;
+import com.app.doctors_and_patients.dto.DoctorDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+
+public class Main {
+
+
 
     // localhost:8080/index
     @GetMapping(value = {"/index", "/"})
@@ -22,24 +24,9 @@ public class MainController {
         return "index";
     }
 
-
-
-
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
-
-    @GetMapping("log_in")
-    public String log_in() {
-        return "log_in";
-    }
-
     @GetMapping(value = {"questions"})
     public String questions() {
         return "questions";
     }
-
-
 
 }

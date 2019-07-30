@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/navigation.css">
     <link rel="stylesheet" href="/css/fontawesome-free-5.9.0-web/js/all.js">
@@ -11,6 +10,9 @@
     <link href="/css/fontawesome-free-5.9.0-web/css/brands.css" rel="stylesheet">
     <link href="/css/fontawesome-free-5.9.0-web/css/solid.css" rel="stylesheet">
     <div th:replace="fragments/navigation :: navigation"></div>
+    <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+    <!--&lt;!&ndash; Your custom styles (optional) &ndash;&gt;-->
+    <!--<link href="css/style2.css" rel="stylesheet">-->
     <link rel="stylesheet" href="/css/style.css">
     <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -25,19 +27,20 @@
             <div>
                 <form th:action="@{/doctors/search}" method="post" th:object="${doctor}">
 
-                    <div class="form-group float-left myChange">
+                    <div class="col-md form-group float-left myChange">
                         <select class="form-control" th:field="*{specialisation}">
                             <option th:each="s: ${specialisations}" th:value="${s}" th:text="${s}"></option>
                         </select>
                     </div>
 
-                    <div class="form-group float-left">
+                    <div class="col-md form-group float-left myChange">
                         <select class="form-control" th:field="*{city}">
                             <option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>
                         </select>
                     </div>
-                    <div class="form-group myStyle float-left">
-                        <button type="submit" class="btn btn-primary btn-block">Szukaj</button>
+
+                    <div class="col-md form-group myStyle float-left myChange">
+                        <button type="submit" class="btn btn-primary">Szukaj</button>
                     </div>
                 </form>
             </div>
@@ -73,14 +76,13 @@
             </div>
             <div class="col-md-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt.
-
             </div>
 
         </div>
     </div>
 </section>
 
-<section>
+<div>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -103,7 +105,6 @@
                     </div>
 
                     <div class="col-md-6">
-
                         <div class="answer">
                             <h4>Anna Nowacka</h4>
                             <p>
@@ -115,19 +116,15 @@
                         </div>
                     </div>
                 </div>
-
-
-                <h4 style="margin-top: 80px">Porady</h4>
                 <div style="margin-top: 25px">
                     <p>
                         <a href="questions">
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat
-                        </a></p>
+                        </a>
+                    </p>
                 </div>
-
-
                 <div class="row">
                     <p class="placeholder">Odpowiedz lekarza</p>
                 </div>
@@ -136,9 +133,7 @@
                         <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg" width="1000"
                              th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"/>
                     </div>
-
                     <div class="col-md-6">
-
                         <div class="answer">
                             <h4>Anna Nowacka</h4>
                             <p>
@@ -150,44 +145,95 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-            <!--</div>-->
             <div class="col-md-6">
                 <h4 style="margin-top: 80px">Najnowsze opinie</h4>
-                <div class="row ">
-                    <div class="col-md-6">
-                        <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg" width="1000"
-                             th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"/>
+                <!--<div class="row ">-->
+                <ul class="list-unstyled">
+                    <div class="row ab">
+                        <li class="media my-2" style="margin-bottom: 80px">
+                            <div class="col-md-6">
+                                <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg"
+                                     width="1000"
+                                     th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"
+                                     alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1 person-name ">List-based media object</h5>
+                                <div class="opinion">
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                </div>
+                            </div>
+                        </li>
                     </div>
+                    <div class="row ab">
+                        <li class="media my-6">
+                            <div class="col-md-6">
+                                <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg"
+                                     width="1000"
+                                     th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"
+                                     alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1 person-name">List-based media object</h5>
+                                <div class="opinion">
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
 
-                    <div class="col-md-6">
-
-                        <div class="answer-new">
-                            <h4>Anna Nowacka</h4>
-                            <p>
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco
-                            </p>
-                        </div>
+                                </div>
+                            </div>
+                        </li>
                     </div>
-                </div>
+                    <div class="row ab">
+                        <li class="media my-2 aa" style="margin-bottom: 80px">
+                            <div class="col-md-6">
+                                <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg"
+                                     width="1000"
+                                     th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"
+                                     alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1 person-name ">List-based media object</h5>
+                                <div class="opinion">
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="row ab">
+                        <li class="media my-2" style="margin-bottom: 80px">
+                            <div class="col-md-6">
+                                <img class="photo" src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg"
+                                     width="1000"
+                                     th:src="@{img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg}"
+                                     alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1 person-name ">List-based media object</h5>
+                                <div class="opinion">
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
             </div>
-
-
         </div>
-
     </div>
+</div>
 
-    </div>
+</div>
 </section>
-
 <footer>
-
     <div th:replace="fragments/footer :: footer"></div>
 </footer>
 </body>

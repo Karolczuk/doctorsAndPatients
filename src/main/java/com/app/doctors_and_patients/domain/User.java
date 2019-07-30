@@ -1,28 +1,40 @@
 package com.app.doctors_and_patients.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
-
+    @Column(unique = true)
     private String username;
+    private String name;
+    private String surname;
+    private Integer age;
     private String email;
     private String password;
     private Boolean enabled;
+
+
+//    @OneToMany(mappedBy = "patient")
+//    @ToString.Exclude
+//    @EqualsAndHashCode.Exclude
+//    private Set<Visit> visits;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Transient
     private String passwordConfirmation;

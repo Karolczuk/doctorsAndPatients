@@ -1,28 +1,26 @@
 package com.app.doctors_and_patients.domain;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "doctors")
-public class Doctor {
+public class Doctor extends User {
     @Id
     @GeneratedValue
     private Long id;
-
-    private String name;
-    private String surname;
-    private String email;
-    private Integer age;
     private LocalDate employmentDate;
     private Integer experience;
+    private String name;
     private String photoFilename;
 
     @Enumerated(EnumType.STRING)
@@ -54,6 +52,5 @@ public class Doctor {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Advice> advices;
-
 
 }

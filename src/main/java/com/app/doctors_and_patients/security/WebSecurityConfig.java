@@ -28,8 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .anyRequest().permitAll()
              //   .antMatchers("/security/**", "/", "/webjars/**","/**/*.jpg","/**/*.png","/**/*.css").permitAll()
-                //.antMatchers("/user/**").hasAnyRole("PATIENT", "DOCTOR")
-//                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/patients/**").hasAnyRole("PATIENT")
+                .antMatchers("/doctors/**").hasAnyRole("DOCTOR")
              //   .anyRequest().authenticated()
 
                 .and()

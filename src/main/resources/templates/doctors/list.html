@@ -6,21 +6,164 @@
     <title>Ala </title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/navigation.css">
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/fontawesome-free-5.9.0-web/js/all.js">
+    <!--<link href="/css/fontawesome-free-5.9.0-web/css/fontawesome.css" rel="stylesheet">-->
+    <!--<link href="/css/fontawesome-free-5.9.0-web/css/brands.css" rel="stylesheet">-->
+    <!--<link href="/css/fontawesome-free-5.9.0-web/css/solid.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <div th:replace="fragments/navigation :: navigation"></div>
 </head>
 <body>
-<table class="table table-striped">
-    <tr>
-        <td>ID</td>
-        <td>Imię</td>
-        <td>Nazwisko</td>
-        <td>Email</td>
-        <td>Akcja</td>
-    </tr>
-    <tr th:each="doctor: ${doctors}">
-        <td th:text="${doctor.name}"/>
-    </tr>
-</table>
+<form th:action="@{/doctors/search}" method="post" th:object="${doctors}">
+
+    <div class="container">
+        <tr th:each="doctor : ${doctors}">
+            <div class="row">
+                <td><span th:text="${doctor.name}"> Title </span></td>
+                <td><span th:text="${doctor.surname}"> Title </span></td>
+                <td><span th:text="${doctor.photoFilename}"> Title </span></td>
+
+            </div>
+                    
+            <!--<tr th:each="doctor : ${doctors}">-->
+
+            <!--<li class="ml-1 mr-1" th:text="${doctor.name}"> </li>-->
+            <!--</tr>-->
+
+            <!--<tr th:each="doctor : ${doctors}">-->
+
+            <div class="border border-info rounded col-12" style="margin-bottom:10px; margin-top:10px; padding:10px">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <img th:src="@{'../static/img/'+${doctor.photoFilename}}"/>
+
+                    </div>
+
+
+                    <div class="col-md-9 col-sm-12">
+                        <div class="row pr-3">
+                            <div class="col-8">
+                                <!--<label class="text-primary" style="font-size:21px;color:maroon" th:text="${doctor.name}"></label>-->
+                                <!--@if (item.Spicyness == "1")-->
+                                <!--{-->
+                                <!--<img srcset="/images/mild.png" title="Mild" />-->
+                                <!--}-->
+                                <!--@if (item.Spicyness == "2")-->
+                                <!--{-->
+                                <!--<img srcset="/images/spicy.png" title="Spicy" />-->
+                                <!--}-->
+                                <!--@if (item.Spicyness == "3")-->
+                                <!--{-->
+                                <!--<img srcset="/images/veryspicy.png" title="Very Spicy" />-->
+                                <!--}-->
+                            </div>
+                            <div class="col-4 text-right" style="color:maroon">
+                                <!--<h4>Ala ma kota</h4>-->
+                            </div>
+                        </div>
+
+
+                        <div class="row col-12 text-justify d-none d-md-block">
+                            <p>Description</p>
+                        </div>
+                        <div class="col-md-3 col-sm-12 offset-md-9 text-center">
+                            <a class="btn btn-success form-control">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tr>
+
+        <!--<div class="col-12">-->
+        <!--<div class="row">-->
+
+        <!--<p th:text="${name}"></p>-->
+
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<p>ala ma kota</p>-->
+    </div>
+</form>
+<!-- Example split danger button -->
+<!--<div class="container">-->
+<!--<div class="btn-group">-->
+<!--<button type="button" class="btn btn-danger">Action</button>-->
+<!--<button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"-->
+<!--aria-haspopup="true" aria-expanded="false">-->
+<!--<span class="sr-only">Toggle Dropdown</span>-->
+<!--</button>-->
+<!--<div class="dropdown-menu">-->
+<!--<a class="dropdown-item" href="#">Action</a>-->
+<!--<a class="dropdown-item" href="#">Another action</a>-->
+<!--<a class="dropdown-item" href="#">Something else here</a>-->
+<!--<div class="dropdown-divider"></div>-->
+<!--<a class="dropdown-item" href="#">Separated link</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--<h2>Media Object</h2>-->
+<!--<p>The media object can also be top, middle or bottom-aligned with the "media-top", "media-middle" or "media-bottom" class:</p><br>-->
+<!--<div class="media">-->
+<!--<div class="media-left">-->
+<!--<img src="img_avatar1.png" class="media-object" style="width:80px">-->
+<!--</div>-->
+<!--<div class="media-body">-->
+<!--<h4 class="media-heading">Media Top</h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<div class="media">-->
+<!--<div class="media-left">-->
+<!--<img src="img_avatar1.png" class="media-object" style="width:80px">-->
+<!--</div>-->
+<!--<div class="media-body">-->
+<!--<h4 class="media-heading">Media Middle</h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<div class="media">-->
+<!--<div class="media-left">-->
+<!--<img src="../static/img/6056414e-d435-4096-9dbd-4ccaf22d888a.jpg"-->
+<!--alt="Generic placeholder image">-->
+<!--</div>-->
+<!--<div class="media-body">-->
+<!--<h4 class="media-heading">Media Bottom</h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<table class="table table-striped">-->
+<!--<tr>-->
+<!--<td>ID</td>-->
+<!--<td>Imię</td>-->
+<!--<td>Nazwisko</td>-->
+<!--<td>Email</td>-->
+<!--<td>Akcja</td>-->
+<!--</tr>-->
+<!--<tr th:each="doctor: ${doctors}">-->
+<!--<td th:text="${doctor.name}"/>-->
+<!--</tr>-->
+<!--</table>-->
+
+
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

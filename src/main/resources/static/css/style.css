@@ -1,0 +1,236 @@
+.nav-link {
+    font-size: 25px;
+}
+
+.top {
+    background-image: url('../img/top.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.myStyle {
+
+    width: 80px !important;
+}
+
+/*@media screen and (min-width: 600px){*/
+    /*.myChange {*/
+        /*margin-left: 500px;*/
+    /*}*/
+/*}*/
+
+.myChange{
+    position: relative;
+    left: 500px;
+}
+
+.form-control {
+    width: 200px;
+}
+
+
+/*@media screen and (min-width: 601px) {*/
+    /*#changeText {*/
+        /*position: relative;*/
+       /*left: 950px;*/
+        /*margin-bottom: 50px;*/
+    /*}*/
+/*}*/
+
+/*@media screen and (max-width: 600px) {*/
+    /*#changeText {*/
+        /*font-size: 10px;*/
+    /*}*/
+/*}*/
+#changeText {
+    margin-left: 950px;
+    margin-bottom: 50px;
+}
+
+#move-dpwn {
+    position: relative;
+    top: 40px;
+    right: 260px;
+
+}
+
+.zmiana {
+    width: 50px;
+    height: 50px;
+    left: 200px;
+}
+
+.change-h3 {
+
+    position: relative;
+    top: 55px;
+    right: -80px;
+
+}
+
+#change-h5 {
+    margin-left: 5px;
+    margin-right: 730px;
+    top: 55px;
+
+}
+
+#move-down2 {
+    float: right;
+    margin-right: 650px;
+    position: relative;
+    bottom: 85px;
+}
+
+#zmiana2 {
+    width: 90px;
+    height: 60px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 160px;
+    right: 290px;
+    top: -53px;
+}
+
+#change-h3b {
+    position: relative;
+    left: 250px;
+    right: 240px;
+}
+
+#change-h5b {
+    position: relative;
+    /*left: 420px;*/
+    /*top: 55px;*/
+    left: 160px;
+    right: 290px;
+    top: -58px;
+
+}
+
+/*ghhjkdfslkfokolsfjldkfjldkfkdlkfdf*/
+
+#move-down3 {
+    float: right;
+    position: relative;
+    /*top: 40px;*/
+    left: 50px;
+    right: 400px;
+    bottom: 210px;
+}
+
+#zmiana3 {
+    width: 50px;
+    height: 50px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 220px;
+    /*right: 356px;*/
+    top: -50px;
+    clear: column;
+}
+
+#change-h3c {
+    float: right;
+    position: relative;
+    /*right: 15px;*/
+    left: 200px;
+    right: 240px;
+}
+
+/*#change-p1 {*/
+
+/*font-size: 20px;*/
+/*position: relative;*/
+/*right: 260px;*/
+/*}*/
+
+/*.change-p1{*/
+/*width: 50%;*/
+/*margin: 20px;*/
+/*padding: 30px;*/
+/*border: 2px solid #000;*/
+/*display: block;*/
+/*}*/
+/*.container{*/
+/*padding: 10px;*/
+/*margin: 20px 1%;*/
+/*}*/
+/*.container h5{*/
+/*-webkit-column-count: 3;*/
+/*column-count: 3;*/
+/*-webkit-column-gap: 50px;*/
+/*column-gap: 50px;*/
+/*-webkit-column-rule: 1px solid #ccc;*/
+
+/*}*/
+
+.h1 {
+    float: left;
+}
+
+/*.image {*/
+/*width: 50px;*/
+/*height: 50px;*/
+/*padding: 2px;*/
+
+/*}*/
+
+.al {
+    /*float: left;*/
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.placeholder {
+    font-size: 14px;
+    color: #98a1ab;
+    line-height: 18px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.answer {
+    background: lightgrey;
+    border: 1px solid #edeff2;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    padding: 20px;
+    position: relative;
+    width: 165%;
+    right: 170px;
+}
+
+
+.photo {
+    width: 40%;
+    height: 35%;
+ }
+
+.opinion{
+    background: #eeeeee;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    padding: 20px;
+    position: relative;
+    width: 165%;
+    right: 154px;
+    }
+
+.person-name{
+    position: relative;
+    right: 155px;
+}
+
+.ab{
+   margin-bottom: 35px;
+}
+
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/position*/

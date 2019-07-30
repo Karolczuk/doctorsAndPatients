@@ -2,7 +2,7 @@ package com.app.doctors_and_patients.domain;
 
 public enum Role {
 
-    PATIENT("ROLE_PATIENT"), DOCTOR("ROLE_DOCTOR");
+    ROLE_PATIENT("ROLE_PATIENT"), ROLE_DOCTOR("ROLE_DOCTOR");
 
     private String fullName;
 

@@ -1,5 +1,4 @@
 package com.app.doctors_and_patients.service;
-
 import com.app.doctors_and_patients.dto.VisitDto;
 import com.app.doctors_and_patients.exception.AppException;
 import com.app.doctors_and_patients.repository.VisitRepository;
@@ -18,6 +17,8 @@ public class VisitService {
             throw new AppException("visit is null");
         }
 
+
+        System.out.println("visitDto" +visitDto);
         visitRepository.save(ModelMapper.fromVisitDtoToVisit(visitDto));
     }
 }

@@ -35,5 +35,8 @@ public class DoctorDto {
     private Specialisation specialisation;
     private City city;
     private AdviceDto adviceDto;
+    private String userName;
+    private String password;
+    private String passwordConfirmation;
 
 }

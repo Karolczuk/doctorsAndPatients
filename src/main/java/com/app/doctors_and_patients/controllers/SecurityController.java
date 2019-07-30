@@ -1,7 +1,4 @@
 package com.app.doctors_and_patients.controllers;
-
-
-import com.app.doctors_and_patients.domain.Role;
 import com.app.doctors_and_patients.domain.User;
 import com.app.doctors_and_patients.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +19,6 @@ public class SecurityController {
     @GetMapping("/register")
     public String registerUserGet(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("roles", Role.values());
         return "security/register";
     }
 
