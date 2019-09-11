@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visit</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/navigation.css">
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <div th:replace="fragments/navigation :: navigation"></div>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form th:action="@{/time-visits/add}" method="post" th:object="${timeVisit}">
+                <input th:field="*{doctorId}" th:value="*{doctorId}" hidden="hidden" readonly="readonly" />
+                <p>Set schedule</p>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Monday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="eDate" type="checkbox" class="form-control" th:field="*{monday}"/>
+                        </div>
+                        <div>
+                            <input  id="from" type="text" placeholder="from" class="form-control" th:field="*{mondayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to" type="text" placeholder="to" class="form-control" th:field="*{mondayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Tuesday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="Date" type="checkbox" class="form-control" th:field="*{tuesday}"/>
+                        </div>
+                        <div>
+                            <input  id="from2" type="text" placeholder="from" class="form-control" th:field="*{tuesdayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to2" type="text" placeholder="to" class="form-control" th:field="*{tuesdayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Wendsday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="Date3" type="checkbox" class="form-control" th:field="*{wendsday}"/>
+                        </div>
+                        <div>
+                            <input  id="from3" type="text" placeholder="from" class="form-control" th:field="*{wendsdayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to3" type="text" placeholder="to" class="form-control" th:field="*{wendsdayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Thursday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="Date4" type="checkbox" class="form-control" th:field="*{thursday}"/>
+                        </div>
+                        <div>
+                            <input  id="from4" type="text" placeholder="from" class="form-control" th:field="*{thursdayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to4" type="text" placeholder="to" class="form-control" th:field="*{thursdayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Friday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="Date5" type="checkbox" class="form-control" th:field="*{friday}"/>
+                        </div>
+                        <div>
+                            <input  id="from5" type="text" placeholder="from" class="form-control" th:field="*{fridayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to5" type="text" placeholder="to" class="form-control" th:field="*{fridayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="eDate">Saturday</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="Date6" type="checkbox" class="form-control" th:field="*{saturday}"/>
+                        </div>
+                        <div>
+                            <input  id="from6" type="text" placeholder="from" class="form-control" th:field="*{saturdayFrom}"/>
+                        </div>
+                        <div>
+                            <input id="to6" type="text" placeholder="to" class="form-control" th:field="*{saturdayTo}"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

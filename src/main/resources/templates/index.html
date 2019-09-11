@@ -27,6 +27,18 @@
             <div>
                 <form th:action="@{/doctors/search}" method="post" th:object="${doctor}">
 
+                    <!--<div class="col-md form-group float-left myChange">-->
+                        <!--<select class="form-control" th:field="*{specialisation}">-->
+                            <!--<option th:each="s: ${specialisations}" th:value="${s}" th:text="${s}"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-md form-group float-left myChange">-->
+                        <!--<select class="form-control" th:field="*{city}">-->
+                            <!--<option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+
                     <div class="col-md form-group float-left myChange">
                         <select class="form-control" th:field="*{specialisation}">
                             <option th:each="s: ${specialisations}" th:value="${s}" th:text="${s}"></option>
@@ -38,6 +50,19 @@
                             <option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>
                         </select>
                     </div>
+
+
+                    <!--<div class="col-md form-group float-left myChange">-->
+                        <!--<select class="form-control" th:field="*{specialisations}">-->
+                            <!--<option th:each="s: ${specialisations}" th:value="${s}" th:text="${s}"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-md form-group float-left myChange">-->
+                        <!--<select class="form-control" th:field="*{city}">-->
+                            <!--<option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
 
                     <div class="col-md form-group myStyle float-left myChange">
                         <button type="submit" class="btn btn-primary">Szukaj</button>

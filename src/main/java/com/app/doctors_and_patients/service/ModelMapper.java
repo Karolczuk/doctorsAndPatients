@@ -40,8 +40,11 @@ public interface ModelMapper {
 //                .email(doctor.getEmail())
                 .employmentDate(doctor.getEmploymentDate())
                 .experience(doctor.getExperience())
-//                .gender(doctor.getGender())
                 .specialisations(doctor.getSpecialisations())
+
+//                .gender(doctor.getGender())
+                //  .specialisation(doctor.getSpecialisations())
+                // .specialisations(doctor.getSpecialisations())
                 .photoFilename(doctor.getPhotoFilename())
                 .build();
     }
@@ -58,10 +61,10 @@ public interface ModelMapper {
                 .employmentDate(doctorDto.getEmploymentDate())
                 .experience(doctorDto.getExperience())
                 .gender(doctorDto.getGender())
-                .specialisations(doctorDto.getSpecialisations())
+                //  .specialisations(doctorDto.getSpecialisation())
                 .photoFilename(doctorDto.getPhotoFilename())
                 .password(doctorDto.getPassword())
-                .username(doctorDto.getUserName())
+                .username(doctorDto.getUsername())
                 .advices(new HashSet<>())
                 .visits(new HashSet<>())
                 .build();
@@ -70,6 +73,7 @@ public interface ModelMapper {
     static PatientDto fromPatientToPatientDto(Patient patient) {
         return patient == null ? null : PatientDto.builder()
                 .id(patient.getId())
+                .age(patient.getAge())
                 .visits(patient.getVisits())
                 .build();
     }
@@ -111,6 +115,7 @@ public interface ModelMapper {
                 .description(questionDto.getDescription())
                 .patient(questionDto.getPatientDto() == null ? null : fromPatientDtoToPatient(questionDto.getPatientDto()))
                 // .patient(questionDto.getPatientDto() == null ? null : fromPatientDtoToPatient(questionDto.getPatientDto()))
+
                 .build();
     }
 

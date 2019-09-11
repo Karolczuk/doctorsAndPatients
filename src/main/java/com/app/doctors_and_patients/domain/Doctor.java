@@ -1,5 +1,7 @@
 package com.app.doctors_and_patients.domain;
 
+import com.app.doctors_and_patients.dto.TimeVisitDto;
+import com.app.doctors_and_patients.validation.TimeVisitConverter;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -12,19 +14,24 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+
 @Entity
 @Table(name = "doctors")
 public class Doctor extends User {
-    @Id
-    @GeneratedValue
-    private Long id;
+
+
+
     private LocalDate employmentDate;
     private Integer experience;
-    private String name;
+
+
     private String photoFilename;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    @Lob 
+    @Convert(converter = TimeVisitConverter.class) 
+    private TimeVisitDto timeVisit;
+
+
 
     @OneToMany(mappedBy = "doctor")
     @ToString.Exclude

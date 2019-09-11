@@ -14,10 +14,6 @@ import java.util.Set;
 @Table(name = "patients")
 public class Patient extends User {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
 
 
     @OneToMany(mappedBy = "patient")
@@ -30,9 +26,5 @@ public class Patient extends User {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Question> questions;
-
-
-//    @Enumerated(EnumType.STRING)
-//    private Gender gender;
 
 }

@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,11 +17,10 @@ public class VisitController {
 
     private final VisitService visitService;
 
-    //@PreAuthorize("hasRole('PATIENT')")
-    @GetMapping("/add")
-    public String addGet(Model model) {
-        model.addAttribute("visit", new VisitDto());
-        model.addAttribute("doctor", new DoctorDto());
+    @PreAuthorize("hasRole('PATIENT')")
+    @GetMapping("/add/{doctorId}")
+    public String addGet(Model model, @PathVariable Long doctorId) {
+        model.addAttribute("visit", VisitDto.builder().doctorId(doctorId).build());
         return "visits/add";
     }
 
@@ -44,6 +40,21 @@ public class VisitController {
 
     @PostMapping("/visit")
     public String visit(@ModelAttribute PatientDto patientDto) {
+        return "redirect:/";
+    }
+
+
+    @PreAuthorize("hasRole('DOCTOR')")
+    @GetMapping("/setSchedule")
+    public String setSchedule(Model model) {
+        model.addAttribute("visit", new VisitDto());
+        model.addAttribute("doctor", new DoctorDto());
+        return "visits/schedule";
+    }
+
+    @PostMapping("/setSchedule")
+    public String setSchedule(@ModelAttribute VisitDto visitDto) {
+        visitService.add(visitDto);
         return "redirect:/";
     }
 

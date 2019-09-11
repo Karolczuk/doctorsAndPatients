@@ -1,4 +1,5 @@
 package com.app.doctors_and_patients.service;
+
 import com.app.doctors_and_patients.domain.User;
 import com.app.doctors_and_patients.dto.UserDto;
 import com.app.doctors_and_patients.exception.AppException;
@@ -14,7 +15,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository<User> userRepository;
+    private final UserRepository userRepository;
     private final DoctorRepository doctorRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -36,12 +37,5 @@ public class UserService {
         return null;
     }
 
-    public void add(UserDto patientDto) {
 
-        if (patientDto == null) {
-            throw new AppException("patient is null");
-        }
-
-      //  userRepository.save(ModelMapper.fromPatientDtoToPatient(patientDto));
-    }
 }

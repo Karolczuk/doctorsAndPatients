@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Give answer</title>
+    <title>Update doctor</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/navigation.css">
     <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
@@ -10,17 +10,24 @@
     <div th:replace="fragments/doctor_navigation :: doctor_navigation"></div>
 </head>
 <body>
-</br>
-</br>
-</br>
+
+
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <form th:action="@{/doctors/add}" method="post" th:object="${doctor}" enctype="multipart/form-data">
+            <!--<form th:action="@{/doctors/update}" method="post" th:object="${doctor}" enctype="multipart/form-data">-->
+
+            <form th:action="@{/doctors/update}" method="post" th:object="${doctor}" enctype="multipart/form-data">
+
+                <input th:field="*{id}" th:value="*{id}" hidden="hidden" readonly="readonly" />
+                <input th:field="*{photoFilename}" th:value="*{photoFilename}" hidden="hidden" readonly="readonly" />
 
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input id="name" type="text" class="form-control" th:field="*{name}"/>
+                </div>
+                <div th:if="${errors.containsKey('name')}">
+                    <label class="text-danger" th:text="${errors.get('name')}"></label>
                 </div>
 
                 <div class="form-group">
@@ -32,10 +39,16 @@
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" th:field="*{email}"/>
                 </div>
+                <div th:if="${errors.containsKey('email')}">
+                    <label class="text-danger" th:text="${errors.get('email')}"></label>
+                </div>
 
                 <div class="form-group">
                     <label for="age">Age</label>
                     <input id="age" type="number" class="form-control" th:field="*{age}"/>
+                </div>
+                <div th:if="${errors.containsKey('age')}">
+                    <label class="text-danger" th:text="${errors.get('age')}"></label>
                 </div>
 
                 <div class="form-group">
@@ -43,15 +56,6 @@
                     <input id="eDate" type="date" class="form-control" th:field="*{employmentDate}"/>
                 </div>
 
-                <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <ul class="list-inline" id="gender">
-                        <li th:each="g : ${genders}" class="list-inline-item">
-                            <input type="radio" th:field="*{gender}" th:value="${g}" class="mr-1"/>
-                            <label th:text="${g}" class="mr-2"></label>
-                        </li>
-                    </ul>
-                </div>
 
                 <div class="form-group">
                     <label for="specialisation">Specialisation</label>
@@ -62,6 +66,7 @@
                         </li>
                     </ul>
                 </div>
+
 
                 <div class="form-group">
                     <label for="skill">City</label>
@@ -80,26 +85,12 @@
                     </select>
                 </div>
 
-
                 <div class="form-group">
                     <label for="photo">Photo</label>
                     <input id="photo" type="file" class="form-control" th:field="*{file}"/>
                 </div>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" th:field="*{username}" class="form-control"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" th:field="*{password}" class="form-control"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="passwordConfirmation">Password confirmation</label>
-                    <input id="passwordConfirmation" type="password" th:field="*{passwordConfirmation}"
-                           class="form-control"/>
+                <div th:if="${errors.containsKey('file')}">
+                    <label class="text-danger" th:text="${errors.get('file')}"></label>
                 </div>
 
                 <div class="form-group">

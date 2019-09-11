@@ -29,4 +29,9 @@ public class Main {
         return "questions";
     }
 
+    @GetMapping("/notFound")
+    public String notFoundException(Model model) {
+        model.addAttribute("message", "Page not found!");
+        return "exceptions/exception";
+    }
 }

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add new worker</title>
+    <title>Add new doctor</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/navigation.css">
@@ -23,6 +23,9 @@
                     <label for="name">Name</label>
                     <input id="name" type="text" class="form-control" th:field="*{name}"/>
                 </div>
+                <div th:if="${errors.containsKey('name')}">
+                    <label class="text-danger" th:text="${errors.get('name')}"></label>
+                </div>
 
                 <div class="form-group">
                     <label for="name">Surname</label>
@@ -37,6 +40,9 @@
                 <div class="form-group">
                     <label for="age">Age</label>
                     <input id="age" type="number" class="form-control" th:field="*{age}"/>
+                </div>
+                <div th:if="${errors.containsKey('age')}">
+                    <label class="text-danger" th:text="${errors.get('age')}"></label>
                 </div>
 
                 <div class="form-group">
@@ -74,23 +80,12 @@
                     </ul>
                 </div>
 
-                <!--<div class="form-group">-->
-                <!--<label for="city">City</label>-->
-                <!--<ul class="list-inline" id="city">-->
-                <!--<li th:each="s : ${city}" class="list-inline-item">-->
-                <!--<input type="checkbox" th:field="*{cities}" th:value="${c}" class="mr-1"/>-->
-                <!--<label th:text="${c}" class="mr-2"></label>-->
-                <!--</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-
                 <div class="form-group">
                     <label for="experience">Experience</label>
                     <select th:field="*{experience}" id="experience">
                         <option th:each="e : ${experiences}" th:value="${e}" th:text="${e}"></option>
                     </select>
                 </div>
-
 
                 <div class="form-group">
                     <label for="photo">Photo</label>
@@ -99,7 +94,7 @@
 
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input id="username" type="text" th:field="*{userName}" class="form-control"/>
+                    <input id="username" type="text" th:field="*{username}" class="form-control"/>
                 </div>
 
                 <div class="form-group">

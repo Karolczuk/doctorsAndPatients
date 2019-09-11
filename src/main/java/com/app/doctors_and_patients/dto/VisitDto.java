@@ -8,6 +8,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -21,7 +23,12 @@ public class VisitDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateTime;
 
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime localTime;
     private DoctorDto doctorDto;
+    private Long doctorId;
+    private Long patientId;
+
     private String description;
 
 }

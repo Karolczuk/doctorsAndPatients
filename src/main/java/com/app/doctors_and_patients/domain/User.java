@@ -27,11 +27,7 @@ public class User {
     private String password;
     private Boolean enabled;
 
-
-//    @OneToMany(mappedBy = "patient")
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    private Set<Visit> visits;
+    
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -43,3 +39,5 @@ public class User {
     private Role role;
 
 }
+
+

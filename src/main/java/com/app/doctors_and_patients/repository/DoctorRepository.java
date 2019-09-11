@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+
 public interface DoctorRepository extends UserRepository<Doctor> {
     public List<Doctor> findBySpecialisationsInAndCitiesIn(List<Specialisation> specialisations, List<City>cities);
 

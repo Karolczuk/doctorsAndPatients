@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Visit</title>
+    <title>Update doctor</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/navigation.css">
     <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <div th:replace="fragments/navigation :: navigation"></div>
+    <div th:replace="fragments/doctor_navigation :: doctor_navigation"></div>
 </head>
 <body>
 
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <form th:action="@{/visits/add}" method="post" th:object="${visit}">
+            <form th:action="@{/advice/update}" method="post" th:object="${advice}" enctype="multipart/form-data">
 
+                <input th:field="*{id}" th:value="*{id}" hidden="hidden" readonly="readonly"/>
 
-                <input th:field="*{doctorId}" th:value="*{doctorId}" hidden="hidden" readonly="readonly" />
-
-
+                <input hidden th:field="*{doctorId}"/>
                 <div class="form-group">
-                    <label for="eDate">Visit date</label>
-                    <input id="eDate" type="date" class="form-control" th:field="*{dateTime}"/>
+                    <label for="description">Description</label>
+                    <input id="description" type="text" class="form-control" th:field="*{description}"/>
                 </div>
-
-                <div class="form-group">
-                    <label for="Date">Visit date</label>
-                    <input id="Date" type="text" placeholder="hh:mm" class="form-control" th:field="*{localTime}"/>
-                </div>
-
 
                 <div class="form-group">
                     <button class="btn btn-success" type="submit">Send</button>
                 </div>
+
             </form>
         </div>
     </div>
 </div>
-
-
-
+</body>
+</html>

@@ -1,6 +1,5 @@
 package com.app.doctors_and_patients.dto;
 
-import com.app.doctors_and_patients.domain.Doctor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

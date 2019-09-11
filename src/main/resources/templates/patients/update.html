@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new worker</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form th:action="@{/patients/update}" method="post" th:object="${patient}" enctype="multipart/form-data">
+
+                <input th:field="*{id}" th:value="*{id}" hidden="hidden" readonly="readonly" />
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" class="form-control" th:field="*{name}"/>
+                </div>
+                <!--<div th:if="${errors.containsKey('name')}">-->
+                    <!--<label class="text-danger" th:text="${errors.get('name')}"></label>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" th:field="*{email}"/>
+                </div>
+                <!--<div th:if="${errors.containsKey('email')}">-->
+                    <!--<label class="text-danger" th:text="${errors.get('email')}"></label>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" class="form-control" th:field="*{age}"/>
+                </div>
+                <!--<div th:if="${errors.containsKey('age')}">-->
+                    <!--<label class="text-danger" th:text="${errors.get('age')}"></label>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" th:field="*{username}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" th:field="*{password}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

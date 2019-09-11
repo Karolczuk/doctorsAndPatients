@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Set;
 
 
@@ -32,6 +33,8 @@ public class Visit {
     private BigDecimal cost;
 
     private LocalDate dateTime;
+
+    private LocalTime localTime;
 
     private String description;
 }

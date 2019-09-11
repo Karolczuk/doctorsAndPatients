@@ -15,5 +15,6 @@ public class QuestionDto {
     private Long id;
     private String description;
     private PatientDto patientDto;
+    private Long patientId;
 }
 
